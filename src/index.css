@@ -1,0 +1,87 @@
+body {
+  background-color: rgba(0, 0, 0, 0.87);
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+.game-board {
+  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
+  padding: 2vw;
+  margin-top: 10%;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.the-board {
+  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
+  padding: 2vw;
+}
+
+.board-row {
+  margin-top: -0.1vw;
+  background-color: aquamarine;
+  padding: 0.2vw;
+  border-radius: 0.3vw;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  color: antiquewhite;
+  margin-top: -0.7vw;
+  padding: 1.5vw;
+  text-align: center;
+  font-size: 2vw;
+  font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
+  font-weight: 520;
+}
+
+.status .tooltiptext{
+  visibility: hidden;
+  background-color: rgba(46, 42, 42, 0.87);
+  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
+  color: antiquewhite;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.5vw;
+  font-size: 1.3vw;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  margin-top: -2.8%;
+  left: 49%;
+
+  transition: all 0.2s ease-in-out;
+}
+.status:hover .tooltiptext {
+  visibility: visible;
+}
+
+.square {
+  font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
+  text-transform: lowercase;
+  border-radius: 0.5vw;
+  background-color: burlywood;
+  box-shadow: 0vw 0.3vw 0.5vw 0.01vw rgba(0, 0, 0, 0.171);
+  font-size: 2.3vw;
+  font-weight: bold;
+  height: 6vw;
+  margin: 0.2vw;
+  width: 6vw; 
+  padding: 1vw;
+}
+
+.square:focus {
+  outline: none;
+  box-shadow: 0vw 0.45vw 0.5vw 0.1vw rgba(0, 0, 0, 0.671);
+}
