@@ -12,6 +12,8 @@ body {
 /*---------------------------------------------------------------------------------------------------------------------------*/
           /*The board including the status*/
 .game-board {
+  display: flex;
+  justify-content: center;
   margin-top: 10%;
 }
 
@@ -41,7 +43,6 @@ body {
   background-color: aquamarine;
   color: rgba(36, 35, 35, 0.9);
   box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
-  margin-top: -0.7vw;
   padding: 1.5vw;
   text-align: center;
   font-size: 2vw;
@@ -55,17 +56,24 @@ body {
   box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
   color: antiquewhite;
   text-align: center;
-  border-radius: 6px;
-  padding: 0.5vw;
-  font-size: 1.3vw;
+  border-radius: 0.5vw;
+  padding: 0.3vw;
+  font-size: 1vw;
 
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
   margin-top: -2.8%;
-  left: 49%;
+  left: 55%;
 
   transition: all 0.2s ease-in-out;
+}
+          /*dark light mode*/
+#darkLightMode {
+  border-radius: 0.5vw;
+  font-size: 1.5vw;
+  outline: none;
+  background-image: linear-gradient(to right, white, black);
 }
 .status:hover .tooltiptext {
   visibility: visible;
@@ -106,10 +114,10 @@ body {
   font-size: 2vw;
   font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
   font-weight: 520;
-  background-color: rgba(148, 255, 219, 0.815);
+  background-color: aquamarine;
   border: 0vw solid;
   border-radius: 1vw;
-  box-shadow: 0vw 0.6vw 1.5vw 0.3vw rgba(0, 0, 0, 0.76);
+  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
   outline: none;
   padding: 0.8vw;
   margin: auto;
@@ -120,7 +128,7 @@ body {
 
 .playAgain:hover {
   outline: none;
-  box-shadow: 0vw 0.45vw 0.5vw 0.1vw rgba(0, 0, 0, 0.671);
+  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
   transform: scale(1.07);
 }
 

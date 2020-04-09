@@ -4,55 +4,90 @@ import './index.css';
 
 function Square(props) {
   return (
-    <button className="square" onClick = {props.onClick}>
+    <button className="square" onClick={props.onClick}>
       {props.value}
     </button>
   );
 }
 
 class Board extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      squares : Array(9).fill(null),
-      xIsNext : true,
+      squares: Array(9).fill(null),
+      xIsNext: true,
+      darkFlag : true,
     };
   }
-  
-  handleClick(i){
+
+  handleClick(i) {
     const squares = this.state.squares.slice();
-
-
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'x' : 'o';
     this.setState({
-      squares : squares,
-      xIsNext : !this.state.xIsNext,
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
     });
   }
 
-  playClick(){
+  playClick() {
     const squares = this.state.squares.slice();
     document.getElementById('playAgainButton').style.display = 'none';
     squares.fill(null);
     this.setState({
-      squares : squares,
-      xIsNext : true,
+      squares: squares,
+      xIsNext: true,
     });
   }
 
   renderSquare(i) {
     return (
-      <Square 
+      <Square
         value={this.state.squares[i]}
-        onClick = {() => this.handleClick(i)}
+        onClick={() => this.handleClick(i)}
       />
     );
   }
 
+  modeDarkLight() {
+    if(this.state.darkFlag == false){
+      this.setState({
+        darkFlag : true,
+      });
+      document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.850)';
+      document.getElementsByClassName('the-board')[0].style.backgroundColor = '';
+      document.getElementsByClassName('the-board')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
+      document.getElementsByClassName('status')[0].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('status')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
+      document.getElementsByClassName('board-row')[0].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('board-row')[1].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('board-row')[2].style.backgroundColor = 'aquamarine';
+      document.getElementById('darkLightMode').style.backgroundImage = 'linear-gradient(to right, white, black)';
+      document.getElementsByClassName('playAgain')[0].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('playAgain')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
+    }
+    if(this.state.darkFlag == true){
+      this.setState({
+        darkFlag : false,
+      });
+      document.body.style.backgroundColor = 'antiquewhite';
+      document.getElementsByClassName('the-board')[0].style.backgroundColor = 'grey';
+      document.getElementsByClassName('the-board')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
+      document.getElementsByClassName('status')[0].style.backgroundColor = 'rgba(222, 184, 135, 0.856)';
+      document.getElementsByClassName('status')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
+      document.getElementsByClassName('board-row')[0].style.backgroundColor = 'wheat';
+      document.getElementsByClassName('board-row')[1].style.backgroundColor = 'wheat';
+      document.getElementsByClassName('board-row')[2].style.backgroundColor = 'wheat';
+      document.getElementById('darkLightMode').style.backgroundImage = 'linear-gradient(to right, black, white)';
+      document.getElementsByClassName('playAgain')[0].style.backgroundColor = 'rgba(222, 184, 135, 0.856)';
+      document.getElementsByClassName('playAgain')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
+    } 
+  }
+
   render() {
+    const squares = this.state.squares.slice();
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
@@ -61,12 +96,21 @@ class Board extends React.Component {
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
+    if(squares[0] && squares[1] && squares[2] && squares[3] && squares[4] && squares[5] && squares[6] && squares[7] && squares[8]){
+      document.getElementById('playAgainButton').style.display = 'flex';
+      status = 'No Winner';
+    }
 
     return (
       <div>
         <div className="status">
           {status}
-            <span className="tooltiptext">next player to play</span>
+          <span className="tooltiptext">
+            <button id="darkLightMode"
+              onClick = {() => this.modeDarkLight()}>
+                Dark | Light
+            </button>
+          </span>
         </div>
         <div className="the-board">
           <div className="board-row">
@@ -79,15 +123,15 @@ class Board extends React.Component {
             {this.renderSquare(4)}
             {this.renderSquare(5)}
           </div>
-          <div className="board-row">
+          <div id="board-row" className="board-row">
             {this.renderSquare(6)}
             {this.renderSquare(7)}
             {this.renderSquare(8)}
           </div>
         </div>
-        <button 
-        className="playAgain" id="playAgainButton" 
-        onClick = {() => this.playClick()}
+        <button
+          className="playAgain" id="playAgainButton"
+          onClick={() => this.playClick()}
         >
           play again
         </button>
@@ -99,13 +143,15 @@ class Board extends React.Component {
 class Game extends React.Component {
   render() {
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
+      <div>
+        <div className="game">
+          <div className="game-board">
+            <Board />
+          </div>
+          <div className="game-info">
+            <div>{/* status */}</div>
+            <ol>{/* TODO */}</ol>
+          </div>
         </div>
       </div>
     );
