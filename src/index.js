@@ -52,7 +52,7 @@ class Board extends React.Component {
   }
 
   modeDarkLight() {
-    if(this.state.darkFlag == false){
+    if(this.state.darkFlag === false){
       this.setState({
         darkFlag : true,
       });
@@ -68,7 +68,7 @@ class Board extends React.Component {
       document.getElementsByClassName('playAgain')[0].style.backgroundColor = 'aquamarine';
       document.getElementsByClassName('playAgain')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
     }
-    if(this.state.darkFlag == true){
+    if(this.state.darkFlag === true){
       this.setState({
         darkFlag : false,
       });
@@ -96,7 +96,7 @@ class Board extends React.Component {
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
-    if(squares[0] && squares[1] && squares[2] && squares[3] && squares[4] && squares[5] && squares[6] && squares[7] && squares[8]){
+    if(squares[0] && squares[1] && squares[2] && squares[3] && squares[4] && squares[5] && squares[6] && squares[7] && squares[8] && !winner){
       document.getElementById('playAgainButton').style.display = 'flex';
       status = 'No Winner';
     }
