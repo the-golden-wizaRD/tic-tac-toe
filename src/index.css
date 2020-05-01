@@ -1,85 +1,150 @@
 body {
   background-color: rgba(0, 0, 0, 0.850);
+  transition: all 0.3s ease-out;
 }
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*The page*/
+/*======================================================================================================================================*/
+/*......................................................main div........................................................................*/
+/*======================================================================================================================================*/
+
 .game {
+  width: auto;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
 }
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*The board including the status*/
+/*======================================================================================================================================*/
+/*......................................................the board.......................................................................*/
+/*======================================================================================================================================*/
+
 .game-board {
-  display: grid;
-  margin-top: 10%;
+  display: flex;
 }
 
-.game-info {
-  margin-left: 20px;
-}
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*The play board consisting of the three rows*/
 .the-board {
-  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
+  background-color: rgba(35, 35, 35, 0.623);
+  box-shadow: 0.2vw 0.5vw 1vw 0.15vw rgb(0, 0, 0);
   padding: 2vw;
 }
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*each separate row*/
+/*================================================== each separate board row ===========================================================*/
+
 .board-row {
   margin-top: -0.1vw;
   background-color: aquamarine;
   padding: 0.2vw;
   border-radius: 0.3vw;
 }
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*status with tooltip*/
-.status {
+/*======================================================================================================================================*/
+/*..................................................... accessibility div ..............................................................*/
+/*======================================================================================================================================*/
+.accessibilityPanel {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.accessibility {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: center;
   background-color: aquamarine;
   color: rgba(36, 35, 35, 0.9);
-  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
+  box-shadow: -0.3vw 0.55vw 0.7vw 0.15vw rgb(0, 0, 0,0.5);
   padding: 1.5vw;
   text-align: center;
   font-size: 2vw;
-  font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
   font-weight: 600;
 }
+/*================================================== accessibility status div ==========================================================*/
 
-.status .tooltiptext{
-  visibility: hidden;
-  background-color: rgba(46, 42, 42, 0.87);
-  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
-  color: antiquewhite;
-  text-align: center;
-  border-radius: 0.5vw;
-  padding: 0.3vw;
-  font-size: 1vw;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  margin-top: -2.8%;
-  left: 55%;
-
-  transition: all 0.2s ease-in-out;
+.accessibility .status {
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  display: block;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 0.2vw;
 }
-          /*dark light mode*/
-#darkLightMode {
-  border-radius: 0.5vw;
+/*================================================== accessibility buttons and effects =================================================*/
+
+.accessibility .button {
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  padding: 0.3vw 0.8vw 0.3vw 0.8vw;
   font-size: 1.5vw;
+  border-radius: 0.7vw;
+  display: block;
+  margin: auto;
   outline: none;
-  background-image: linear-gradient(to right, white, black);
+  border: none;
+  transition: all 0.3s ease-in-out;
 }
-.status:hover .tooltiptext {
-  visibility: visible;
+.button:hover {
+  outline: none;
+  border: none;
+  transform: scale(1.1);
 }
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*each separate square*/
+.button:active {
+  outline: none;
+  border: none;
+  transform: scale(0.95);
+}
+/*=============================================== dark light mode div and button =======================================================*/
+
+.accessibility .belowStatus {
+  width: 100%;
+  height: fit-content;
+  display: block;
+  justify-content: center;
+  margin: auto;
+  margin-top: 0.8vw;
+  margin-bottom: 1vw;
+}
+.belowStatus #darkLightModeButton {
+  width: 75%;
+  background-image: linear-gradient(to right, whitesmoke, aquamarine, black);
+  box-shadow: 0px 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7);
+}
+/*=============================================== game info and winner's log  ==========================================================*/
+.game-info {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 0.8vw;
+  text-align: left;
+}
+/*=============================================== play again div and button ============================================================*/
+
+.buttonAtBottom {
+  width: 100%;
+  height: fit-content;
+  display: block;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 0px;
+}
+.buttonAtBottom #playAgainButton {
+  margin: auto;
+  margin-right: 1vw;
+  display: inline;
+  background-color: rgba(50, 50, 50);
+  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgb(10, 10, 10, 0.7);
+  color: antiquewhite;
+  font-family: chilanka, uroob, purisa, 'monotype corsiva';
+}
+.buttonAtBottom #resetButton {
+  margin: auto;
+  display: inline;
+  background-color: rgba(50, 50, 50);
+  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgb(10, 10, 10, 0.7);
+  color: antiquewhite;
+  font-family: chilanka, uroob, purisa, 'monotype corsiva';
+}
+/*======================================================================================================================================*/
+/*..................................................... each separate square ...........................................................*/
+/*======================================================================================================================================*/
+
 .square {
   font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
   text-transform: lowercase;
@@ -94,48 +159,11 @@ body {
   padding: 1vw;
   transition: all 0.2s ease-in-out; 
 }
-
 .square:hover {
   outline: none;
   box-shadow: 0vw 0.45vw 0.5vw 0.1vw rgba(0, 0, 0, 0.671);
   transform: scale(1.07);
 }
-
 .square:focus {
   outline: none;
-}
-/*---------------------------------------------------------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------------------------------------------------------*/
-          /*play again button*/
-.playAgain {
-  color: rgba(36, 35, 35, 0.9);
-  text-align: center;
-  font-size: 2vw;
-  font-family: chilanka, uroob, purisa, 'monotype corsiva' ;
-  font-weight: 520;
-  background-color: aquamarine;
-  border: 0vw solid;
-  border-radius: 1vw;
-  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
-  outline: none;
-  padding: 0.8vw;
-  margin: auto;
-  margin-top: 1vw;
-  display: none;
-  transition: all 0.2s ease-in-out; 
-}
-
-.playAgain:hover {
-  outline: none;
-  box-shadow: 0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0);
-  transform: scale(1.07);
-}
-
-.playAgain:focus {
-  outline: none;
-}
-
-.playAgain:active {
-  outline: none;
-  color: whitesmoke;
 }

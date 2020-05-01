@@ -11,147 +11,215 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true,
-      darkFlag : true,
-    };
-  }
-
-  handleClick(i) {
-    const squares = this.state.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'x' : 'o';
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext,
-    });
-  }
-
-  playClick() {
-    const squares = this.state.squares.slice();
-    document.getElementById('playAgainButton').style.display = 'none';
-    squares.fill(null);
-    this.setState({
-      squares: squares,
-      xIsNext: true,
-    });
-  }
-
   renderSquare(i) {
     return (
       <Square
-        onClick={() => this.handleClick(i)}  
-        value={this.state.squares[i]}
+        onClick={() => this.props.onClick(i)}
+        value={this.props.squares[i]}
       />
     );
   }
 
+  render() {
+    return (
+      <div className="the-board">
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div id="board-row" className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Accessibility extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      darkFlag : true,
+    };
+  }
+  
   modeDarkLight() {
-    if(this.state.darkFlag === false){
+    if (this.state.darkFlag === false) {
       this.setState({
-        darkFlag : true,
+        darkFlag: true,
       });
       document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.850)';
-      document.getElementsByClassName('the-board')[0].style.backgroundColor = '';
-      document.getElementsByClassName('the-board')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
-      document.getElementsByClassName('status')[0].style.backgroundColor = 'aquamarine';
-      document.getElementsByClassName('status')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
+      document.getElementsByClassName('the-board')[0].style.backgroundColor = 'rgba(35, 35, 35, 0.623)';
+      document.getElementsByClassName('the-board')[0].style.boxShadow = '0.2vw 0.5vw 1vw 0.15vw rgb(0, 0, 0)';
       document.getElementsByClassName('board-row')[0].style.backgroundColor = 'aquamarine';
       document.getElementsByClassName('board-row')[1].style.backgroundColor = 'aquamarine';
       document.getElementsByClassName('board-row')[2].style.backgroundColor = 'aquamarine';
-      document.getElementById('darkLightMode').style.backgroundImage = 'linear-gradient(to right, white, black)';
-      document.getElementsByClassName('playAgain')[0].style.backgroundColor = 'aquamarine';
-      document.getElementsByClassName('playAgain')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
+      document.getElementById('darkLightModeButton').style.backgroundImage = 'linear-gradient(to right, white, aquamarine, black)';
+      document.getElementById('darkLightModeButton').style.boxShadow = '0px 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7)';
+      document.getElementsByClassName('accessibility')[0].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('accessibility')[0].style.boxShadow = '-0.3vw 0.55vw 0.7vw 0.15vw rgb(0, 0, 0,0.5)'
+      document.getElementById('playAgainButton').style.backgroundColor = 'rgba(50, 50, 50)';
+      document.getElementById('resetButton').style.backgroundColor = 'rgba(50, 50, 50)';
     }
-    if(this.state.darkFlag === true){
+    if (this.state.darkFlag === true) {
       this.setState({
-        darkFlag : false,
+        darkFlag: false,
       });
       document.body.style.backgroundColor = 'antiquewhite';
       document.getElementsByClassName('the-board')[0].style.backgroundColor = 'grey';
-      document.getElementsByClassName('the-board')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
-      document.getElementsByClassName('status')[0].style.backgroundColor = 'rgba(222, 184, 135, 0.856)';
-      document.getElementsByClassName('status')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
+      document.getElementsByClassName('the-board')[0].style.boxShadow = '0.2vw 0.55vw 1vw 0.15vw rgb(0, 0, 0)';
       document.getElementsByClassName('board-row')[0].style.backgroundColor = 'wheat';
       document.getElementsByClassName('board-row')[1].style.backgroundColor = 'wheat';
       document.getElementsByClassName('board-row')[2].style.backgroundColor = 'wheat';
-      document.getElementById('darkLightMode').style.backgroundImage = 'linear-gradient(to right, black, white)';
-      document.getElementsByClassName('playAgain')[0].style.backgroundColor = 'rgba(222, 184, 135, 0.856)';
-      document.getElementsByClassName('playAgain')[0].style.boxShadow = '0vw 0.55vw 1vw 0.15vw rgb(173, 173, 173)';
-    } 
+      document.getElementById('darkLightModeButton').style.backgroundImage = 'linear-gradient(to right, grey, wheat, white)';
+      document.getElementById('darkLightModeButton').style.boxShadow = '0px 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7)';
+      document.getElementsByClassName('accessibility')[0].style.backgroundColor = 'wheat';
+      document.getElementsByClassName('accessibility')[0].style.boxShadow = '-0.3vw 0.55vw 0.7vw 0.15vw rgb(0, 0, 0,0.5)'
+      document.getElementById('playAgainButton').style.backgroundColor = 'grey';
+      document.getElementById('resetButton').style.backgroundColor = 'grey';
+    }
   }
 
   render() {
-    const squares = this.state.squares.slice();
-    const winner = calculateWinner(this.state.squares);
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-      document.getElementById('playAgainButton').style.display = 'flex';
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
-    if(squares[0] && squares[1] && squares[2] && squares[3] && squares[4] && squares[5] && squares[6] && squares[7] && squares[8] && !winner){
-      document.getElementById('playAgainButton').style.display = 'flex';
-      status = 'No Winner';
-    }
-
     return (
-      <div>
+      <div className="accessibility">
         <div className="status">
-          {status}
-          <span className="tooltiptext">
-            <button id="darkLightMode"
-              onClick = {() => this.modeDarkLight()}>
-                Dark | Light
-            </button>
-          </span>
+          {this.props.status}
         </div>
-        <div className="the-board">
-          <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-          </div>
-          <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-          </div>
-          <div id="board-row" className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-          </div>
+
+        <div className="belowStatus">
+          <button className="button" id="darkLightModeButton"
+            onClick={() => this.modeDarkLight()}
+          >
+            dark | light
+          </button>
         </div>
-        <button
-          className="playAgain" id="playAgainButton"
-          onClick={() => this.playClick()}
-        >
-          play again
+
+        <div className="game-info">
+          Winner's log
+            <br></br>
+            X : {this.props.numberOfXWin}
+          <br></br>
+            O : {this.props.numberOfOWin}
+        </div>
+
+        <div className="buttonAtBottom">
+          <button
+            className="button" id="playAgainButton"
+            onClick={() => this.props.onPlayAgainClick()}
+          >
+            play again
+          </button>
+          <button
+            className="button" id="resetButton"
+            onClick={() => this.props.onResetClick()}
+          >
+            reset
         </button>
+        </div>
       </div>
     );
   }
 }
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+      xIsNext: true,
+      numberOfXWin: 0,
+      numberOfOWin: 0,
+      winnerCheck: 0,
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    const winner = calculateWinner(squares);
+
+    if (winner || squares[i]) {
+      return;
+    }
+
+    squares[i] = this.state.xIsNext ? 'x' : 'o';
+
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
+    });
+
+    if (this.state.winnerCheck === 0) {
+      if (calculateWinner(squares) === 'x') {
+        this.setState({
+          numberOfXWin: this.state.numberOfXWin + 1,
+          winnerCheck: 1,
+        });
+      }
+      if (calculateWinner(squares) === 'o') {
+        this.setState({
+          numberOfOWin: this.state.numberOfOWin + 1,
+          winnerCheck: 1,
+        });
+      }
+    }
+  }
+
+  playAgainClick() {
+    const squares = this.state.squares.slice();
+    squares.fill(null);
+    this.setState({
+      squares: squares,
+      xIsNext: true,
+      winnerCheck: 0,
+    });
+  }
+
+  resetClick() {
+    this.setState({
+      numberOfXWin: 0,
+      numberOfOWin: 0,
+      winnerCheck: 0,
+    });
+    this.playAgainClick();
+  }
+
   render() {
+    const winner = calculateWinner(this.state.squares);
+
+    let status;
+    if (winner) {
+      status = 'Winner ' + winner;
+    } else if (noWinner(this.state.squares, winner)) {
+      status = 'No Winner';
+    } else {
+      status = 'Next player : ' + (this.state.xIsNext ? 'x' : 'o');
+    }
+
     return (
-      <div>
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
+      <div className="game">
+        <div className="accessibilityPanel">
+          <Accessibility
+            status={status}
+            numberOfOWin={this.state.numberOfOWin}
+            numberOfXWin={this.state.numberOfXWin}
+            onPlayAgainClick={() => this.playAgainClick()}
+            onResetClick={() => this.resetClick()}
+          />
+        </div>
+        <div className="game-board">
+          <Board
+            squares={this.state.squares}
+            onClick={(i) => this.handleClick(i)}
+          />
         </div>
       </div>
     );
@@ -176,6 +244,13 @@ function calculateWinner(squares) {
     }
   }
   return null;
+}
+
+function noWinner(currentSquares, winner) {
+  if (!winner && currentSquares[0] && currentSquares[1] && currentSquares[2] && currentSquares[3] && currentSquares[4] && currentSquares[5] && currentSquares[6] && currentSquares[7] && currentSquares[8]) {
+    return 1;
+  }
+  return 0;
 }
 
 // ========================================
