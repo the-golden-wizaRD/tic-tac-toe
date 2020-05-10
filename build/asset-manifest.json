@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/the-golden-wizaRD/tic-tac-toestatic/css/main.a55d8562.chunk.css",
-    "main.js": "/the-golden-wizaRD/tic-tac-toestatic/js/main.d5822ade.chunk.js",
-    "main.js.map": "/the-golden-wizaRD/tic-tac-toestatic/js/main.d5822ade.chunk.js.map",
-    "runtime-main.js": "/the-golden-wizaRD/tic-tac-toestatic/js/runtime-main.8d88bdcf.js",
-    "runtime-main.js.map": "/the-golden-wizaRD/tic-tac-toestatic/js/runtime-main.8d88bdcf.js.map",
-    "static/js/2.3753c32d.chunk.js": "/the-golden-wizaRD/tic-tac-toestatic/js/2.3753c32d.chunk.js",
-    "static/js/2.3753c32d.chunk.js.map": "/the-golden-wizaRD/tic-tac-toestatic/js/2.3753c32d.chunk.js.map",
-    "index.html": "/the-golden-wizaRD/tic-tac-toeindex.html",
-    "precache-manifest.0adc9350031d3fa004f016092add439d.js": "/the-golden-wizaRD/tic-tac-toeprecache-manifest.0adc9350031d3fa004f016092add439d.js",
-    "service-worker.js": "/the-golden-wizaRD/tic-tac-toeservice-worker.js",
-    "static/css/main.a55d8562.chunk.css.map": "/the-golden-wizaRD/tic-tac-toestatic/css/main.a55d8562.chunk.css.map",
-    "static/js/2.3753c32d.chunk.js.LICENSE.txt": "/the-golden-wizaRD/tic-tac-toestatic/js/2.3753c32d.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.43ab70b8.chunk.css",
+    "main.js": "/static/js/main.18cb2a1d.chunk.js",
+    "main.js.map": "/static/js/main.18cb2a1d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.23127ecf.js",
+    "runtime-main.js.map": "/static/js/runtime-main.23127ecf.js.map",
+    "static/js/2.3753c32d.chunk.js": "/static/js/2.3753c32d.chunk.js",
+    "static/js/2.3753c32d.chunk.js.map": "/static/js/2.3753c32d.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ddbd6beeae2a3c57e60b79c30cb99814.js": "/precache-manifest.ddbd6beeae2a3c57e60b79c30cb99814.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.43ab70b8.chunk.css.map": "/static/css/main.43ab70b8.chunk.css.map",
+    "static/js/2.3753c32d.chunk.js.LICENSE.txt": "/static/js/2.3753c32d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8d88bdcf.js",
+    "static/js/runtime-main.23127ecf.js",
     "static/js/2.3753c32d.chunk.js",
-    "static/css/main.a55d8562.chunk.css",
-    "static/js/main.d5822ade.chunk.js"
+    "static/css/main.43ab70b8.chunk.css",
+    "static/js/main.18cb2a1d.chunk.js"
   ]
 }

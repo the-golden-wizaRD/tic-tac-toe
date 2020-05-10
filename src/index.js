@@ -59,12 +59,11 @@ class Accessibility extends React.Component {
       document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.850)';
       document.getElementsByClassName('the-board')[0].style.backgroundColor = 'rgba(35, 35, 35, 0.623)';
       document.getElementsByClassName('the-board')[0].style.boxShadow = '0.2vw 0.5vw 1vw 0.15vw rgb(0, 0, 0)';
-      document.getElementsByClassName('board-row')[0].style.backgroundColor = 'aquamarine';
-      document.getElementsByClassName('board-row')[1].style.backgroundColor = 'aquamarine';
-      document.getElementsByClassName('board-row')[2].style.backgroundColor = 'aquamarine';
-      document.getElementById('darkLightModeButton').style.backgroundImage = 'linear-gradient(to right, white, aquamarine, black)';
-      document.getElementById('darkLightModeButton').style.boxShadow = '0px 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7)';
-      document.getElementsByClassName('accessibility')[0].style.backgroundColor = 'aquamarine';
+      document.getElementsByClassName('board-row')[0].style.backgroundColor = 'rgb(10, 255, 173)';
+      document.getElementsByClassName('board-row')[1].style.backgroundColor = 'rgb(10, 255, 173)';
+      document.getElementsByClassName('board-row')[2].style.backgroundColor = 'rgb(10, 255, 173)';
+      document.getElementById('darkLightModeButton').style.backgroundColor = 'rgba(50, 50, 50)';
+      document.getElementsByClassName('accessibility')[0].style.backgroundColor = 'rgba(69, 255, 193, 0.842)';
       document.getElementsByClassName('accessibility')[0].style.boxShadow = '-0.3vw 0.55vw 0.7vw 0.15vw rgb(0, 0, 0,0.5)'
       document.getElementById('playAgainButton').style.backgroundColor = 'rgba(50, 50, 50)';
       document.getElementById('resetButton').style.backgroundColor = 'rgba(50, 50, 50)';
@@ -79,8 +78,7 @@ class Accessibility extends React.Component {
       document.getElementsByClassName('board-row')[0].style.backgroundColor = 'wheat';
       document.getElementsByClassName('board-row')[1].style.backgroundColor = 'wheat';
       document.getElementsByClassName('board-row')[2].style.backgroundColor = 'wheat';
-      document.getElementById('darkLightModeButton').style.backgroundImage = 'linear-gradient(to right, grey, wheat, white)';
-      document.getElementById('darkLightModeButton').style.boxShadow = '0px 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7)';
+      document.getElementById('darkLightModeButton').style.backgroundColor = 'grey';
       document.getElementsByClassName('accessibility')[0].style.backgroundColor = 'wheat';
       document.getElementsByClassName('accessibility')[0].style.boxShadow = '-0.3vw 0.55vw 0.7vw 0.15vw rgb(0, 0, 0,0.5)'
       document.getElementById('playAgainButton').style.backgroundColor = 'grey';
