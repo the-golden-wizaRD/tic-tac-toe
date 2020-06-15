@@ -34,6 +34,7 @@ body {
   background-color: rgb(10, 255, 173);
   padding: 0.2vw;
   border-radius: 0.3vw;
+  display: flex;
 }
 /*======================================================================================================================================*/
 /*..................................................... accessibility div ..............................................................*/
@@ -135,7 +136,7 @@ body {
   margin-right: 1vw;
   display: inline;
   background-color: rgba(50, 50, 50);
-  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgb(10, 10, 10, 0.7);
+  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7);
   color: antiquewhite;
   font-family: chilanka, uroob, purisa, 'monotype corsiva';
 }
@@ -143,7 +144,7 @@ body {
   margin: auto;
   display: inline;
   background-color: rgba(50, 50, 50);
-  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgb(10, 10, 10, 0.7);
+  box-shadow: 0vw 0.3vw 0.5vw 0.15vw rgba(10, 10, 10, 0.7);
   color: antiquewhite;
   font-family: chilanka, uroob, purisa, 'monotype corsiva';
 }
